@@ -1,0 +1,86 @@
+[
+  {
+    "id": 1,
+    "name": "Dhanush Khan",
+    "age": 20,
+    "city": "Chennai"
+  },
+  {
+    "id": 2,
+    "name": "Arun",
+    "age": 21,
+    "city": "Coimbatore"
+  },
+  {
+    "id": 3,
+    "name": "Karthik",
+    "age": 22,
+    "city": "Madurai"
+  },
+  {
+    "id": 4,
+    "name": "Rahul",
+    "age": 23,
+    "city": "Trichy"
+  },
+  {
+    "id": 5,
+    "name": "Vijay",
+    "age": 24,
+    "city": "Salem"
+  },
+  {
+    "id": 6,
+    "name": "Ajay",
+    "age": 20,
+    "city": "Erode"
+  },
+  {
+    "id": 7,
+    "name": "Suresh",
+    "age": 25,
+    "city": "Tirunelveli"
+  },
+  {
+    "id": 8,
+    "name": "Prakash",
+    "age": 22,
+    "city": "Vellore"
+  },
+  {
+    "id": 9,
+    "name": "Manoj",
+    "age": 23,
+    "city": "Thanjavur"
+  },
+  {
+    "id": 10,
+    "name": "Kiran",
+    "age": 21,
+    "city": "Pondicherry"
+  },
+  {
+    "id": 11,
+    "name": "Karthik",
+    "age": 21,
+    "city": "Pondicherry"
+  },
+  {
+    "id": 1773336949384,
+    "name": "Yuvan",
+    "age": "22",
+    "city": "Chennai"
+  },
+  {
+    "id": 1773378550543,
+    "name": "Dhanush kumar",
+    "age": "20",
+    "city": "Kanchipuram"
+  },
+  {
+    "id": 1773379246506,
+    "name": "Prakash Raj",
+    "age": "250",
+    "city": "Pondicherry"
+  }
+]
