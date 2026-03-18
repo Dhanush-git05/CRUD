@@ -22,6 +22,7 @@ const userSchema = new mongoose.Schema({
 
 const User = mongoose.model("User", userSchema);
 
+
 /* GET USERS */
 app.get("/users", async (req, res) => {
   const users = await User.find();
@@ -44,17 +45,34 @@ app.delete("/users/:id", async (req, res) => {
 
 /* UPDATE USER */
 app.patch("/users/:id", async (req, res) => {
-  const id = req.params.id;
+  try {
+    const id = req.params.id;
 
-  const updatedUser = await User.findByIdAndUpdate(
-    id,
-    req.body,
-    { new: true }
-  );
+    const updatedUser = await User.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true }
+    );
 
-  res.json(updatedUser);
+    res.json(updatedUser);
+
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 });
 
+app.put("/users/:id", async (req, res) => {
+  try {
+    const updatedUser = await User.findByIdAndUpdate(
+      req.params.id,
+      req.body,
+      { new: true }
+    );
+    res.json(updatedUser);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 /* SERVER */
 app.listen(8000, () => {
   console.log("Server running on port 8000");
