@@ -1,20 +1,44 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
+import "./UserDashboard.css";
+import { useNavigate } from "react-router-dom";
 
-function AdminDashboard() {
+
+
+function UserDashboard() {
+  const navigate = useNavigate();
 
   const [users, setUsers] = useState([]);
   const [filterusers, setFilterusers] = useState([]);
-  const [userData, setUserData] = useState({ name: "", age: "", city: "" });
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     getAllUsers();
   }, []);
 
+    const handleLogout = () => {
+  navigate("/"); // go to login page
+};
+
+
   const getAllUsers = async () => {
     const res = await axios.get("http://localhost:8000/users");
     setUsers(res.data);
     setFilterusers(res.data);
+  };
+
+    // 🔥 SEARCH FUNCTION
+  const handleSearch = (e) => {
+    const value = e.target.value.toLowerCase();
+    setSearch(value);
+
+    const filtered = users.filter((user) =>
+      user.name.toLowerCase().includes(value) ||
+      user.city.toLowerCase().includes(value) ||
+      user.age.toString().includes(value)
+    );
+
+    setFilterusers(filtered);
   };
 
   /*const handleDelete = async (id) => {
@@ -34,25 +58,41 @@ function AdminDashboard() {
     getAllUsers();
   }; */
 
-  return (
-    <div>
-      <h1>User Details</h1>
+return (
+  <div className="container">
+    <h1>User Details</h1>
 
-      
-     {/* <input placeholder="Name" onChange={(e)=>setUserData({...userData,name:e.target.value})}/>
-      <input placeholder="Age" onChange={(e)=>setUserData({...userData,age:e.target.value})}/>
-      <input placeholder="City" onChange={(e)=>setUserData({...userData,city:e.target.value})}/>
-      <button onClick={handleSubmit}>Save</button> */} 
+       {/* TOP BAR */}
+  <div className="top-bar">
+    <button className="logout-btn" onClick={handleLogout}>
+      Logout
+    </button>
+  </div>
 
-      <h3>User List</h3>
-      {filterusers.map((user) => (
-        <div key={user._id}>
-          {user.name} - {user.age} - {user.city}
-          {/* <button onClick={() => handleDelete(user._id)}>Delete</button> */}
-        </div>
-      ))}
-    </div>
-  );
+  <input  className="search-input" type="text" placeholder="Search Here..."
+        value={search}
+        onChange={handleSearch} />
+
+    <table className="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>City</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {filterusers.map((user) => (
+          <tr key={user._id}>
+            <td>{user.name}</td>
+            <td>{user.age}</td>
+            <td>{user.city}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+);
 }
-
-export default AdminDashboard;
+export default UserDashboard;

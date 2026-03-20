@@ -1,0 +1,53 @@
+.container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin-top: 20px;
+}
+
+/* TABLE */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  
+}
+
+.table th,
+.table td {
+  border: 1px solid #ccc;
+  padding: 10px;
+}
+
+.table th {
+  background-color: blue;
+  color: #f2f2f2;
+
+}
+
+.table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.logout-btn {
+  background-color: black;
+  color: white;
+  padding: 8px 15px;
+  margin-left: 80%;
+}
+
+.logout-btn:hover {
+  background-color: #333;
+}
+
+.search-input {
+  width: 60%;
+  padding: 8px;
+  margin-top: 20px;
+  border: 1px solid black;
+  border-radius: 4px;
+}
